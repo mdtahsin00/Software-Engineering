@@ -1,0 +1,391 @@
+/* 
+==================================================
+  CSS Styling based on Merged Figma Design
+================================================== 
+*/
+
+:root {
+    /* Gradient Background Top to Bottom */
+    --bg-top: #ecfdef;
+    --bg-bottom: #e8ecfc;
+    
+    /* Core Branding Colors */
+    --primary-cyan: #26bdf9; 
+    --card-bg: #bae2f2; /* Light blue */
+    
+    /* Typography */
+    --text-primary: #111111;
+    --text-muted: #4b5563;
+    
+    /* Bullets */
+    --bullet-color: #8dbed2;
+    
+    /* Footer Colors */
+    --footer-bg: #3f3e3e;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 
+==================================================
+  Main View & Top Gradient
+================================================== 
+*/
+.main-content {
+    flex: 1; 
+    background: linear-gradient(160deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    padding: 70px 40px 100px 40px; 
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1050px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title {
+    color: var(--primary-cyan);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: -0.5px;
+}
+
+/* 
+==================================================
+  Navigation Tabs
+================================================== 
+*/
+.tabs-container {
+    background-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+    margin-bottom: 70px;
+    padding: 4px; 
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+    padding: 8px 30px;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.tab:hover:not(.active) {
+    background-color: #f1f5f9;
+}
+
+.tab.active {
+    background-color: var(--primary-cyan);
+    color: var(--white);
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(38, 189, 249, 0.4);
+}
+
+/* 
+==================================================
+  Job Cards Grid Layout (Light Blue Design)
+================================================== 
+*/
+.cards-grid {
+    display: grid;
+    /* 2 equal columns for large cards */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    /* Distinct drop shadow falling bottom right */
+    box-shadow: 8px 10px 25px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.profile-pic {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px; 
+}
+
+.info-row {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* 
+==================================================
+  Card Inner Details (4 Columns)
+================================================== 
+*/
+.card-body {
+    display: grid;
+    /* 4 columns: Skills, Experience, Project, Education */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.card-column h4 {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.card-column ul {
+    list-style: none;
+}
+
+.card-column li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 14px;
+    color: var(--text-muted);
+}
+
+/* Custom Bullet Points */
+.card-column li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px; 
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--bullet-color);
+}
+
+/* 
+==================================================
+  Footer
+================================================== 
+*/
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    padding: 60px 40px 30px;
+    margin-top: -30px; 
+}
+
+.footer-container {
+    max-width: 1050px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top {
+    display: grid;
+    /* 3 equal columns for Contact, About, Support */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Contact Details */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.icon-square {
+    width: 34px;
+    height: 34px;
+    background-color: var(--white);
+    color: var(--footer-bg); 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.contact-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* About Column */
+.about-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links-list {
+    list-style: none;
+    text-align: left;
+    width: 80px; 
+}
+
+.footer-links-list li {
+    margin-bottom: 16px;
+}
+
+.footer-links-list a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Live Support Wrapper */
+.support-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}
+
+.support-illustration {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.support-avatar {
+    font-size: 3rem;
+    color: #92c5e5; 
+    margin-bottom: -10px; 
+    z-index: 1;
+}
+
+.support-label {
+    background-color: #92c5e5;
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 16px;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer Bottom Strip */
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+/* Social Media Buttons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    background-color: var(--white);
+    color: #000;
+    border-radius: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+}
+
+.legal-links {
+    display: flex;
+    gap: 25px;
+}
+
+.legal-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about-col, .support-col {
+        align-items: center;
+    }
+    .support-illustration {
+        margin-right: 0;
+    }
+}

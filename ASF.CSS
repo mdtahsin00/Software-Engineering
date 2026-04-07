@@ -1,0 +1,443 @@
+/* 
+==================================================
+  CSS Styling based on Updated Figma Design
+================================================== 
+*/
+
+:root {
+    /* Gradient Background Top to Bottom */
+    --bg-top: #ecfdef;
+    --bg-bottom: #e8ecfc;
+    
+    /* Core Branding Colors */
+    --primary-cyan: #26bdf9; 
+    --card-bg: #ffffff;
+    
+    /* Typography */
+    --text-primary: #111111;
+    --text-muted: #6b7280;
+    
+    /* Badge/Pill Colors */
+    --green-bg: #e6fff0;
+    --green-text: #4de67b; 
+    --purple-bg: #fae8ff;
+    --purple-text: #e15afa; 
+    
+    /* Footer Colors */
+    --footer-bg: #3f3e3e;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 
+==================================================
+  Main View & Top Gradient
+================================================== 
+*/
+.main-content {
+    flex: 1; /* Pushes footer to bottom */
+    background: linear-gradient(160deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    padding: 70px 40px 100px 40px; 
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1050px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title {
+    color: var(--primary-cyan);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: -0.5px;
+}
+
+/* 
+==================================================
+  Navigation Tabs
+================================================== 
+*/
+.tabs-container {
+    background-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft drop shadow */
+    margin-bottom: 70px;
+    padding: 4px; /* Space around tabs */
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 8px; /* Inner radius for tabs */
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.tab:hover:not(.active) {
+    background-color: #f1f5f9;
+}
+
+.tab.active {
+    background-color: var(--primary-cyan);
+    color: var(--white);
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(38, 189, 249, 0.4);
+}
+
+/* 
+==================================================
+  Job Cards Grid Layout
+================================================== 
+*/
+.cards-grid {
+    display: grid;
+    /* 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 24px 28px;
+    border: 1px solid #d1d5db; /* Distinct grey stroke on cards */
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.04);
+}
+
+.company-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    /* Soft shadow directly on icon as seen in design */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.job-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.company-name {
+    font-size: 0.95rem;
+    color: var(--primary-cyan);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.location-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.location-icon {
+    font-size: 1rem;
+    color: #999;
+}
+
+/* 
+==================================================
+  Card Inner Details (Badges & Buttons)
+================================================== 
+*/
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salary-text {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    flex: 1; 
+}
+
+/* Reusable Badge Pill */
+.badge {
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.badge-green {
+    background-color: var(--green-bg);
+    color: var(--green-text);
+}
+
+.badge-purple {
+    background-color: var(--purple-bg);
+    color: var(--purple-text);
+    flex: 1; /* Stretch button slightly */
+    margin-right: 15px; /* Offset from Apply button */
+}
+
+/* Quick Apply Action Button */
+.btn-cyan {
+    background-color: var(--primary-cyan);
+    color: var(--white);
+    border: none;
+    padding: 9px 20px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(38, 189, 249, 0.3);
+    flex: 1; /* Match width loosely */
+}
+
+/* 
+==================================================
+  Footer
+================================================== 
+*/
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    padding: 60px 40px 30px;
+    margin-top: -30px; /* Overlaps slighty or tightens gap */
+}
+
+.footer-container {
+    max-width: 1050px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top {
+    display: grid;
+    /* 3 equal columns for Contact, About, Support */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Contact Details */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.icon-square {
+    width: 34px;
+    height: 34px;
+    background-color: var(--white);
+    color: var(--footer-bg); /* Dark icon on white */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.contact-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* About Column */
+.about-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center aligning per visual */
+}
+
+.footer-links-list {
+    list-style: none;
+    text-align: left;
+    width: 80px; /* Fix width for visual balance */
+}
+
+.footer-links-list li {
+    margin-bottom: 16px;
+}
+
+.footer-links-list a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Live Support Wrapper */
+.support-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align to trailing edge */
+}
+
+.support-illustration {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.support-avatar {
+    font-size: 3rem;
+    color: #92c5e5; /* soft blue icon color */
+    margin-bottom: -10px; /* Allow badge to overlap */
+    z-index: 1;
+}
+
+.support-label {
+    background-color: #92c5e5;
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 16px;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer Bottom Strip */
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    gap: 20px;
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+/* Social Media Buttons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    background-color: var(--white);
+    color: #000;
+    border-radius: 10px; /* Apple-style squircle look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+}
+
+.legal-links {
+    display: flex;
+    gap: 25px;
+}
+
+.legal-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* 
+==================================================
+  Responsive Adjustments
+================================================== 
+*/
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .about-col, .support-col {
+        align-items: center;
+    }
+
+    .support-illustration {
+        margin-right: 0;
+    }
+    
+    .tabs-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
